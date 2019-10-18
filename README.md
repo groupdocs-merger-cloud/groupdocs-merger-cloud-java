@@ -1,6 +1,8 @@
 # GroupDocs.Merger Cloud SDK for Java
 This repository contains GroupDocs.Merger Cloud SDK for Java source code. This SDK allows you to work with GroupDocs.Merger Cloud REST APIs in your Java applications.
 
+GroupDocs.Merger Cloud allows you to merge documents and manipulate document structure across wide range of supported document types - PDF, DOCX/DOC, PPTX/PPT, XLSX/XLS, VSDX/VSD, ODT, ODS, ODP, HTML, EPUB and many others. Merge several documents into one, split single document to multiple documents, reorder or replace document pages, change page orientation, manage document password and perform other manipulations with GroupDocs.Merger Cloud API.
+
 ## Requirements
 
 Building the API client library requires [Maven](https://maven.apache.org/) to be installed.
