@@ -38,7 +38,7 @@ Add following repository and dependency to your project's POM
 <dependency>
     <groupId>com.groupdocs</groupId>
     <artifactId>groupdocs-merger-cloud</artifactId>
-    <version>19.10</version>
+    <version>21.6</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/groupdocs-merger-cloud-19.10.jar
+* target/groupdocs-merger-cloud-21.6.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -92,4 +92,12 @@ public class ApiExample {
 ## Licensing
 All GroupDocs.Merger Cloud SDKs are licensed under [MIT License](LICENSE).
 
-[Home](https://www.groupdocs.cloud/) | [Product Page](https://products.groupdocs.cloud/merger/java) | [Docs](https://docs.groupdocs.cloud/merger/) | [Demos](https://products.groupdocs.app/merger/family) | [API Reference](https://apireference.groupdocs.cloud/merger/) | [Examples](https://github.com/groupdocs-merger-cloud/groupdocs-merger-cloud-java-samples) | [Blog](https://blog.groupdocs.cloud/category/merger/) | [Free Support](https://forum.groupdocs.cloud/c/merger) | [Free Trial](https://purchase.groupdocs.cloud/trial)
+## Resources
++ [**Website**](https://www.groupdocs.cloud)
++ [**Product Home**](https://products.groupdocs.cloud/merger)
++ [**Documentation**](https://docs.groupdocs.cloud/display/mergercloud/Home)
++ [**Free Support Forum**](https://forum.groupdocs.cloud/c/merger)
++ [**Blog**](https://blog.groupdocs.cloud/category/merger)
+
+## Contact Us
+Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://forum.groupdocs.cloud/c/merger).
