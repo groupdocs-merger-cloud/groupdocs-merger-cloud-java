@@ -24,7 +24,7 @@ Add following repository and dependency to your project's POM
 <dependency>
     <groupId>com.groupdocs</groupId>
     <artifactId>groupdocs-merger-cloud</artifactId>
-    <version>23.2</version>
+    <version>23.10</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -43,7 +43,7 @@ repositories {
 ...
 dependencies {
     ...
-    implementation 'com.groupdocs:groupdocs-merger-cloud:23.2'
+    implementation 'com.groupdocs:groupdocs-merger-cloud:23.10'
 }
 ```
 
@@ -100,7 +100,7 @@ mvn package -D maven.test.skip=true
 
 Then manually install the following JARs:
 
-* target/groupdocs-merger-cloud-23.2.jar
+* target/groupdocs-merger-cloud-23.10.jar
 * target/lib/*.jar
 
 ## Licensing
