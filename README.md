@@ -1,6 +1,6 @@
 # GroupDocs.Merger Cloud SDK for Java
 
-This repository contains GroupDocs.Merger Cloud SDK for Java source code. This SDK allows you to work with GroupDocs.Merger Cloud REST APIs in your Java applications.
+[GroupDocs.Merger Cloud API](https://products.groupdocs.cloud/merger/java/) empowers developers to integrate advanced document merging and page manipulation functionalities into their Java applications. Supporting over 40 file formats, this REST API allows seamless merging, splitting, and reorganization of document pages, including PDFs, Word documents, Excel spreadsheets, and more. Security features include password protection for documents, while additional file and folder operations streamline cloud storage management. Whether working with cross-format documents or performing complex page manipulations, GroupDocs.Merger Cloud delivers robust tools for secure and efficient document handling across web, desktop, and mobile platforms.
 
 ## Requirements
 
@@ -54,54 +54,61 @@ dependencies {
 * Build and execute
 * Explore more samples at [GitHub](https://github.com/groupdocs-merger-cloud/groupdocs-merger-cloud-java-samples)
 
-Example:
+This example demonstrates merging different Word files seamlessly with a few lines of code:
 
 ```java
+package examples.DocumentOperations;
+
+import java.util.Arrays;
 import com.groupdocs.cloud.merger.client.*;
 import com.groupdocs.cloud.merger.model.*;
-import com.groupdocs.cloud.merger.api.InfoApi;
+import com.groupdocs.cloud.merger.model.requests.*;
+import com.groupdocs.cloud.merger.api.*;
+import examples.Utils;
 
-import java.util.*;
+/**
+ * This example demonstrates how to join specific pages from several source documents.
+ */
+public class Merger_Java_JoinPagesFromVariousDocuments {
 
-public class ApiExample {
+	public static void main(String[] args) {		
 
-    public static void main(String[] args) {
-        //TODO: Get your AppSID and AppKey at https://dashboard.groupdocs.cloud (free registration is required).
-        String appSid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
-        String appKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+		DocumentApi apiInstance = new DocumentApi(Utils.GetConfiguration());
 
-        Configuration configuration = new Configuration(appSid, appKey);
-        
-        InfoApi infoApi = new InfoApi(configuration);
+		try {
+			FileInfo fileInfo1 = new FileInfo();			
+			fileInfo1.setFilePath("WordProcessing/sample-10-pages.docx");
+			JoinItem item1 = new JoinItem();
+			item1.setFileInfo(fileInfo1);
+			item1.setPages(Arrays.asList(3, 6, 8));
 
-        try {
-            FormatsResult response = infoApi.getSupportedFileFormats();
-            for (Format format : response.getFormats()) {
-                System.out.println(format.getFileFormat());
-            }
-        } catch (ApiException e) {
-            System.err.println("Failed to get supported file formats");
-            e.printStackTrace();
-        }
-    }
+			FileInfo fileInfo2 = new FileInfo();			
+			fileInfo2.setFilePath("WordProcessing/four-pages.docx");
+			JoinItem item2 = new JoinItem();
+			item2.setFileInfo(fileInfo2);
+			item2.setStartPageNumber(1);
+			item2.setEndPageNumber(4);
+			item2.setRangeMode(JoinItem.RangeModeEnum.ODDPAGES);
+
+			JoinOptions options = new JoinOptions();
+			options.setJoinItems(Arrays.asList(item1, item2));
+			options.setOutputPath("output/joined-pages.docx");
+
+			JoinRequest request = new JoinRequest(options);
+
+			DocumentResult response = apiInstance.join(request);
+
+			System.err.println("Output file path: " + response.getPath());
+		
+		} catch (ApiException e) {
+
+			System.err.println("Exception while calling api:");
+			e.printStackTrace();
+		}
+	}
 }
 ```
 
-## Manual build and installation from sources
-
-Building the API client library requires [Maven](https://maven.apache.org/) to be installed.
-Refer to the [official documentation](https://maven.apache.org/plugins/maven-deploy-plugin/usage.html) for more information.
-
-At first generate the JAR by executing following command in "/src" working directory:
-
-```shell
-mvn package -D maven.test.skip=true
-```
-
-Then manually install the following JARs:
-
-* target/groupdocs-merger-cloud-25.5.jar
-* target/lib/*.jar
 
 ## Licensing
 
