@@ -263,6 +263,9 @@ public class JoinItem {
   @SerializedName("imageJoinMode")
   private ImageJoinModeEnum imageJoinMode = null;
 
+  @SerializedName("preserveAccessibility")
+  private Boolean preserveAccessibility = null;
+
   public JoinItem fileInfo(FileInfo fileInfo) {
     this.fileInfo = fileInfo;
     return this;
@@ -415,6 +418,24 @@ public class JoinItem {
     this.imageJoinMode = imageJoinMode;
   }
 
+  public JoinItem preserveAccessibility(Boolean preserveAccessibility) {
+    this.preserveAccessibility = preserveAccessibility;
+    return this;
+  }
+
+   /**
+   * Indicates if PDF accessibility (tagged PDF structure) should be preserved during merge.
+   * @return preserveAccessibility
+  **/
+  @ApiModelProperty(required = true, value = "Indicates if PDF accessibility (tagged PDF structure) should be preserved during merge.")
+  public Boolean getPreserveAccessibility() {
+    return preserveAccessibility;
+  }
+
+  public void setPreserveAccessibility(Boolean preserveAccessibility) {
+    this.preserveAccessibility = preserveAccessibility;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -432,12 +453,13 @@ public class JoinItem {
         Objects.equals(this.rangeMode, joinItem.rangeMode) &&
         Objects.equals(this.wordJoinMode, joinItem.wordJoinMode) &&
         Objects.equals(this.wordJoinCompliance, joinItem.wordJoinCompliance) &&
-        Objects.equals(this.imageJoinMode, joinItem.imageJoinMode);
+        Objects.equals(this.imageJoinMode, joinItem.imageJoinMode) &&
+        Objects.equals(this.preserveAccessibility, joinItem.preserveAccessibility);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileInfo, pages, startPageNumber, endPageNumber, rangeMode, wordJoinMode, wordJoinCompliance, imageJoinMode);
+    return Objects.hash(fileInfo, pages, startPageNumber, endPageNumber, rangeMode, wordJoinMode, wordJoinCompliance, imageJoinMode, preserveAccessibility);
   }
 
 
@@ -454,6 +476,7 @@ public class JoinItem {
     sb.append("    wordJoinMode: ").append(toIndentedString(wordJoinMode)).append("\n");
     sb.append("    wordJoinCompliance: ").append(toIndentedString(wordJoinCompliance)).append("\n");
     sb.append("    imageJoinMode: ").append(toIndentedString(imageJoinMode)).append("\n");
+    sb.append("    preserveAccessibility: ").append(toIndentedString(preserveAccessibility)).append("\n");
     sb.append("}");
     return sb.toString();
   }

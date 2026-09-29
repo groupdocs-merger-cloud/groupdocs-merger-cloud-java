@@ -48,6 +48,9 @@ public class PreviewOptions extends PageOptions {
   @SerializedName("width")
   private Integer width = null;
 
+  @SerializedName("resolution")
+  private Integer resolution = null;
+
   @SerializedName("height")
   private Integer height = null;
 
@@ -139,6 +142,24 @@ public class PreviewOptions extends PageOptions {
     this.height = height;
   }
 
+  public PreviewOptions resolution(Integer resolution) {
+    this.resolution = resolution;
+    return this;
+  }
+
+   /**
+   * Preview resolution (DPI). When 0, default resolution is used.
+   * @return resolution
+  **/
+  @ApiModelProperty(required = true, value = "Preview resolution (DPI). When 0, default resolution is used.")
+  public Integer getResolution() {
+    return resolution;
+  }
+
+  public void setResolution(Integer resolution) {
+    this.resolution = resolution;
+  }
+
   public PreviewOptions format(FormatEnum format) {
     this.format = format;
     return this;
@@ -170,12 +191,13 @@ public class PreviewOptions extends PageOptions {
     return Objects.equals(this.width, previewOptions.width) &&
         Objects.equals(this.height, previewOptions.height) &&
         Objects.equals(this.format, previewOptions.format) &&
+        Objects.equals(this.resolution, previewOptions.resolution) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(width, height, format, super.hashCode());
+    return Objects.hash(width, height, format, resolution, super.hashCode());
   }
 
 
@@ -187,6 +209,7 @@ public class PreviewOptions extends PageOptions {
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
+    sb.append("    resolution: ").append(toIndentedString(resolution)).append("\n");
     sb.append("}");
     return sb.toString();
   }

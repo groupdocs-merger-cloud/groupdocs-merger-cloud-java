@@ -24,7 +24,7 @@ Add following repository and dependency to your project's POM
 <dependency>
     <groupId>com.groupdocs</groupId>
     <artifactId>groupdocs-merger-cloud</artifactId>
-    <version>25.11</version>
+    <version>26.9</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -43,7 +43,7 @@ repositories {
 ...
 dependencies {
     ...
-    implementation 'com.groupdocs:groupdocs-merger-cloud:25.11'
+    implementation 'com.groupdocs:groupdocs-merger-cloud:26.9'
 }
 ```
 
